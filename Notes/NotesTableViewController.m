@@ -87,4 +87,11 @@
     }
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NoteView *noteController = [NoteView new];
+    noteController.Name = self.Notes[indexPath.row].name;
+    [self.navigationController pushViewController:noteController animated:YES];
+}
+
 @end

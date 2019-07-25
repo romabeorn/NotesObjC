@@ -13,7 +13,7 @@
 
 @property (nonatomic, strong) UITextView *TextArea;
 @property (nonatomic, strong) NSString *TextAreaContent;
-
+@property (nonatomic, strong) TextArea *NoteEntity;
 @end
 
 @implementation NoteView
@@ -36,7 +36,8 @@
     for(NSManagedObject *object in tmpData){
         if ([object valueForKey:@"name"] == self.Name)
         {
-            [self.TextArea setText:[NSString stringWithFormat:@"%@", [tmpData.lastObject valueForKey: @"text"] ] ];
+            self.NoteEntity = object;
+            [self.TextArea setText:[NSString stringWithFormat:@"%@", [object valueForKey: @"text"] ] ];
         }
     }
     
@@ -74,8 +75,7 @@
 {
     NSManagedObjectContext *viewContext = [CoreDataStack shared].viewContext;
     [viewContext performBlock:^{
-        TextArea *textArea = [[TextArea alloc] initWithContext:viewContext];
-        textArea.text = textView.text;
+        self.NoteEntity.text = textView.text;
         [viewContext save:nil];
     }];
     

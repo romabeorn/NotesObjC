@@ -10,6 +10,7 @@
 #import "NoteTableViewCell.h"
 #import "CoreDataStack.h"
 #import "TextArea.h"
+#import "NoteEntities/NoteView.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -17,7 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) UITableView *NotesTableView;
 @property (nonatomic, assign) NSInteger NotesCount;
-@property (nonatomic, strong) NSMutableArray <NSManagedObject *> *Notes;
+@property (nonatomic, strong) NSMutableArray <TextArea *> *Notes;
 
 @end
 
