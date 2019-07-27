@@ -12,7 +12,6 @@
 @interface NoteView () <UITextViewDelegate>
 
 @property (nonatomic, strong) UITextView *TextArea;
-@property (nonatomic, strong) NSString *TextAreaContent;
 @property (nonatomic, strong) TextArea *NoteEntity;
 @end
 
@@ -28,10 +27,12 @@
     [super viewDidLoad];
     self.TextArea = [[UITextView alloc] initWithFrame:self.view.frame];
     
+    // Кнопка назад
     self.navigationItem.hidesBackButton = YES;
-    UIBarButtonItem *newBackButton = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleDone target:self action:@selector(back:)];
-    self.navigationItem.leftBarButtonItem = newBackButton;
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleDone target:self action:@selector(back:)];
+    self.navigationItem.leftBarButtonItem = backButton;
     
+    // Скачивание заметки
     NSManagedObjectContext *viewContext = [CoreDataStack shared].viewContext;
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc]
                                     initWithEntityName:@"TextArea"];
@@ -48,15 +49,18 @@
         }
     }
     
+    // Настрока заметки
     [self setTextAreaSettings];
     [self.view addSubview:self.TextArea];
 }
 
+// Перехват кнопки возврата
 - (void) back:(UIBarButtonItem *)sender {
     [self.navigationController popViewControllerAnimated:YES];
     self.editCell();
 }
 
+// Настройка textView
 -(void)setTextAreaSettings
 {
     [self.TextArea setFont:[UIFont systemFontOfSize:22]];
@@ -71,17 +75,15 @@
     [super touchesBegan:touches withEvent:event];
 }
 
-- (void)textViewDidBeginEditing:(UITextView *)textView
-{
-    NSLog(@"Text view did begin editing");
-    [self positionTextView];
-}
-
+// Изменение заметки в любом виде
 - (void)textViewDidChange:(UITextView *)textView
 {
     NSManagedObjectContext *viewContext = [CoreDataStack shared].viewContext;
     [viewContext performBlock:^{
-        self.title = textView.text;
+        if ([textView.text isEqualToString:@""])
+            self.title = self.Name;
+        else
+            self.title = textView.text;
         self.NoteEntity.text = textView.text;
         [viewContext save:nil];
     }];
@@ -89,6 +91,7 @@
     
 }
 
+// Прокрутка заметки
 - (void)positionTextView {
     NSRange lastLine = NSMakeRange(self.TextArea.text.length - 1, 1);
     [self.TextArea scrollRangeToVisible:lastLine];

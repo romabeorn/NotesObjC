@@ -51,10 +51,16 @@
 {
     NoteTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NoteCell" forIndexPath:indexPath];
     NSString *text = [self.Notes[indexPath.row] valueForKey:@"text"];
-    if (text == nil)
-        cell.Name.text = [self.Notes[indexPath.row] valueForKey:@"name"];
+    NSString *name = [self.Notes[indexPath.row] valueForKey:@"name"];
+    if ([text isEqualToString:@""])
+    {
+        if ([name isEqualToString:@""])
+            cell.NoteCell.text = [NSString stringWithFormat:@"Заметка %li", indexPath.row];
+        else
+            cell.NoteCell.text = name;
+    }
     else
-        cell.Name.text = text;
+        cell.NoteCell.text = text;
     
     return cell;
     
@@ -102,7 +108,19 @@
 {
     NoteView *noteController = [NoteView new];
     noteController.Name = [self.Notes[indexPath.row] valueForKey:@"name"];
-    noteController.title = [self.Notes[indexPath.row] valueForKey:@"text"];
+    NSString *text = [self.Notes[indexPath.row] valueForKey:@"text"];
+    NSString *name = [self.Notes[indexPath.row] valueForKey:@"name"];
+    if ([text isEqualToString:@""])
+    {
+        if ([name isEqualToString:@""])
+            noteController.title = [NSString stringWithFormat:@"Заметка %li", indexPath.row];
+        else
+            noteController.title = name;
+    } else
+    {
+        noteController.title = text;
+    }
+    
     
     noteController.editCell = ^(void){
         [tableView beginUpdates];

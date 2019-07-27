@@ -8,11 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-NS_ASSUME_NONNULL_BEGIN
-
 @interface NoteTableViewCell : UITableViewCell
-@property (nonatomic, readonly) UILabel *Name;
+
+@property (nonatomic, readonly) UILabel *NoteCell;
 
 @end
-
-NS_ASSUME_NONNULL_END

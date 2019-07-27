@@ -53,6 +53,7 @@
     [viewContext performBlockAndWait:^{
         TextArea *textArea = [[TextArea alloc] initWithContext:viewContext];
         textArea.name = [NSString stringWithFormat:@"Заметка %li", self.vc.NotesCount];
+        textArea.text = @"";
         [self.vc.Notes addObject:textArea];
         [viewContext save:nil];
     }];
@@ -62,7 +63,7 @@
     
     NoteTableViewCell *cell = [[NoteTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"NoteCell"];
     self.vc.NotesCount += 1;
-    cell.Name.text = [NSString stringWithFormat:@"Заметка %li", self.vc.NotesCount];
+    cell.NoteCell.text = [NSString stringWithFormat:@"Заметка %li", self.vc.NotesCount];
     [self.vc.NotesTableView insertRowsAtIndexPaths:
      @[ [NSIndexPath  indexPathForRow:(self.vc.NotesCount - 1) inSection:0] ] withRowAnimation:UITableViewRowAnimationRight];
     

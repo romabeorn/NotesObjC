@@ -10,7 +10,7 @@
 
 @interface NoteTableViewCell ()
 
-@property (nonatomic, strong) UILabel *Name;
+@property (nonatomic, strong) UILabel *NoteCell;
 
 @end
 
@@ -21,9 +21,9 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self)
     {
-        _Name = [[UILabel alloc] initWithFrame:CGRectMake(15, 20, UIScreen.mainScreen.bounds.size.width - 5 * 2, 20)];
-        _Name.text = @"";
-        [self.contentView addSubview:_Name];
+        _NoteCell = [[UILabel alloc] initWithFrame:CGRectMake(15, 20, UIScreen.mainScreen.bounds.size.width - 5 * 2, 20)];
+        _NoteCell.text = @"";
+        [self.contentView addSubview:_NoteCell];
     }
     
     return self;
@@ -32,7 +32,7 @@
 - (void)prepareForReuse
 {
     [super prepareForReuse];
-    self.Name.text = nil;
+    _NoteCell.text = nil;
 }
 
 
