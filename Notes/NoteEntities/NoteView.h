@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface NoteView : UIViewController
 
 @property (nonatomic, strong) NSString *Name;
+@property (nonatomic, copy) void (^editCell)(void);
 
 @end
 

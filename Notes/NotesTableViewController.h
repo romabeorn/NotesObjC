@@ -10,7 +10,7 @@
 #import "NoteTableViewCell.h"
 #import "CoreDataStack.h"
 #import "TextArea.h"
-#import "NoteEntities/NoteView.h"
+#import "NoteView.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

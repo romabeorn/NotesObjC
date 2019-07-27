@@ -21,8 +21,7 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self)
     {
-        //        self.backgroundColor = [UIColor ];
-        _Name = [[UILabel alloc] initWithFrame:CGRectMake(5, 5, UIScreen.mainScreen.bounds.size.width - 5 * 2, 20)];
+        _Name = [[UILabel alloc] initWithFrame:CGRectMake(15, 20, UIScreen.mainScreen.bounds.size.width - 5 * 2, 20)];
         _Name.text = @"";
         [self.contentView addSubview:_Name];
     }

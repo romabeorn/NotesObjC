@@ -28,21 +28,33 @@
     [super viewDidLoad];
     self.TextArea = [[UITextView alloc] initWithFrame:self.view.frame];
     
+    self.navigationItem.hidesBackButton = YES;
+    UIBarButtonItem *newBackButton = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleDone target:self action:@selector(back:)];
+    self.navigationItem.leftBarButtonItem = newBackButton;
+    
     NSManagedObjectContext *viewContext = [CoreDataStack shared].viewContext;
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc]
                                     initWithEntityName:@"TextArea"];
     NSArray *tmpData = [viewContext executeFetchRequest:fetchRequest
                                                   error:nil];
-    for(NSManagedObject *object in tmpData){
+    for(TextArea *object in tmpData){
         if ([object valueForKey:@"name"] == self.Name)
         {
             self.NoteEntity = object;
-            [self.TextArea setText:[NSString stringWithFormat:@"%@", [object valueForKey: @"text"] ] ];
+            NSString *text = [object valueForKey:@"text"];
+            if (text == nil)
+                text = @"";
+            [self.TextArea setText:[NSString stringWithFormat:@"%@", text] ];
         }
     }
     
     [self setTextAreaSettings];
     [self.view addSubview:self.TextArea];
+}
+
+- (void) back:(UIBarButtonItem *)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+    self.editCell();
 }
 
 -(void)setTextAreaSettings
@@ -59,12 +71,6 @@
     [super touchesBegan:touches withEvent:event];
 }
 
-- (BOOL)textViewShouldEndEditing:(UITextView *)textView
-{
-    NSLog(@"Text view should begin editing");
-    return YES;
-}
-
 - (void)textViewDidBeginEditing:(UITextView *)textView
 {
     NSLog(@"Text view did begin editing");
@@ -75,6 +81,7 @@
 {
     NSManagedObjectContext *viewContext = [CoreDataStack shared].viewContext;
     [viewContext performBlock:^{
+        self.title = textView.text;
         self.NoteEntity.text = textView.text;
         [viewContext save:nil];
     }];
