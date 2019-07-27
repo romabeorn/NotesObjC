@@ -7,12 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "../TextArea.h"
-#import "../CoreDataStack.h"
+#import "TextArea.h"
+#import "CoreDataStack.h"
 
 @interface Driver : NSObject
 
-- (NSArray<TextArea *> *)getEntities;
++ (NSArray<TextArea *> *)getNotesFromDB;
++ (void)deleteAllNotes;
 
 @end
 

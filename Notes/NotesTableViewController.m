@@ -11,7 +11,7 @@
 
 @interface NotesTableViewController () <UITableViewDelegate, UITableViewDataSource>
 
-
+@property (nonatomic, strong) Driver *CoreDriver;
 
 @end
 
@@ -24,15 +24,9 @@
     self.NotesCount = 0;
     self.Notes = [[NSMutableArray array] mutableCopy];
     
-    NSManagedObjectContext *viewContext = [CoreDataStack shared].viewContext;
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc]
-                                    initWithEntityName:@"TextArea"];
-    NSArray *tmpData = [viewContext executeFetchRequest:fetchRequest
-                                                  error:nil];
-    for(TextArea *object in tmpData){
+    for(TextArea *note in [Driver getNotesFromDB]){
         self.NotesCount += 1;
-        [self.Notes addObject:object];
-        
+        [self.Notes addObject:note];
     }
     
     self.NotesTableView = [[UITableView alloc] initWithFrame:self.view.frame style:UITableViewStyleGrouped];
@@ -52,10 +46,11 @@
     NoteTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NoteCell" forIndexPath:indexPath];
     NSString *text = [self.Notes[indexPath.row] valueForKey:@"text"];
     NSString *name = [self.Notes[indexPath.row] valueForKey:@"name"];
+    self.Notes[indexPath.row].idNote = indexPath.row;
     if ([text isEqualToString:@""])
     {
         if ([name isEqualToString:@""])
-            cell.NoteCell.text = [NSString stringWithFormat:@"Заметка %li", indexPath.row];
+            cell.NoteCell.text = @"Новая заметка";
         else
             cell.NoteCell.text = name;
     }
@@ -108,12 +103,13 @@
 {
     NoteView *noteController = [NoteView new];
     noteController.Name = [self.Notes[indexPath.row] valueForKey:@"name"];
+    noteController.idNote = [[self.Notes[indexPath.row] valueForKey:@"idNote"] intValue];
     NSString *text = [self.Notes[indexPath.row] valueForKey:@"text"];
     NSString *name = [self.Notes[indexPath.row] valueForKey:@"name"];
     if ([text isEqualToString:@""])
     {
         if ([name isEqualToString:@""])
-            noteController.title = [NSString stringWithFormat:@"Заметка %li", indexPath.row];
+            noteController.title = @"Новая заметка";
         else
             noteController.title = name;
     } else

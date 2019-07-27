@@ -11,6 +11,7 @@
 
 @implementation TextArea
 
+@dynamic idNote;
 @dynamic name;
 @dynamic text;
 

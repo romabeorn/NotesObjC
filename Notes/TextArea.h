@@ -14,6 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface TextArea : NSManagedObject
 
+@property (nonatomic, assign) int idNote;
 @property (nonatomic, copy) NSString *name;
 @property (nonatomic, copy) NSString *text;
 

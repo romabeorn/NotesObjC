@@ -9,10 +9,13 @@
 #import "NoteView.h"
 #import "CoreDataStack.h"
 #import "TextArea.h"
+#import "Driver.h"
+
 @interface NoteView () <UITextViewDelegate>
 
 @property (nonatomic, strong) UITextView *TextArea;
 @property (nonatomic, strong) TextArea *NoteEntity;
+
 @end
 
 @implementation NoteView
@@ -33,16 +36,11 @@
     self.navigationItem.leftBarButtonItem = backButton;
     
     // Скачивание заметки
-    NSManagedObjectContext *viewContext = [CoreDataStack shared].viewContext;
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc]
-                                    initWithEntityName:@"TextArea"];
-    NSArray *tmpData = [viewContext executeFetchRequest:fetchRequest
-                                                  error:nil];
-    for(TextArea *object in tmpData){
-        if ([object valueForKey:@"name"] == self.Name)
+    for(TextArea *note in [Driver getNotesFromDB]){
+        if ([[note valueForKey:@"idNote"] intValue] == self.idNote)
         {
-            self.NoteEntity = object;
-            NSString *text = [object valueForKey:@"text"];
+            self.NoteEntity = note;
+            NSString *text = [note valueForKey:@"text"];
             if (text == nil)
                 text = @"";
             [self.TextArea setText:[NSString stringWithFormat:@"%@", text] ];

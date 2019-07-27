@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "ViewController.h"
+#import "Driver.h"
 @interface AppDelegate ()
 
 @end
@@ -17,10 +18,15 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
+    
+//    [Driver deleteAllNotes];
+    
+    
+    
     ViewController *notes = [ViewController new];
     notes.title = @"Notes";
     
-
+    
     // Container
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:notes];
     
@@ -34,6 +40,7 @@
     
     
     self.window.rootViewController = tabBarController;
+    
     return YES;
 }
 

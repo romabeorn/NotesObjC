@@ -9,17 +9,19 @@
 #import "ViewController.h"
 #import "CoreDataStack.h"
 #import "TextArea.h"
+#import "Driver.h"
 
 @interface ViewController ()
 
 @property (nonatomic, strong) NotesTableViewController *vc;
-//@property (nonatomic, strong) NoteView *vc;
 
 @property (nonatomic, assign) CGFloat topPadding;
 @property (nonatomic, assign) CGFloat bottomPadding;
 
 @property (nonatomic, strong) UINavigationController *navigationController;
 @property (nonatomic, strong) UITabBarController *tabBarController;
+
+@property (nonatomic, strong) Driver *CoreDriver;
 
 @end
 
@@ -37,8 +39,6 @@
     UIBarButtonItem *anotherButton = [[UIBarButtonItem alloc] initWithTitle:@"Add" style:UIBarButtonItemStylePlain target:self action:@selector(addCell)];
     self.navigationItem.rightBarButtonItem = anotherButton;
     
-    //    ==NoteView==
-    //    self.vc = [NoteView new];
     self.vc.view.frame = self.view.frame;
     [self addChildViewController:self.vc];
     [self.view addSubview:self.vc.view];
@@ -46,13 +46,14 @@
     
 }
 
+
 - (void)addCell
 {
     //ДОБАВЛЕНИЕ В БАЗУ ДАННЫХ
     NSManagedObjectContext *viewContext = [CoreDataStack shared].viewContext;
     [viewContext performBlockAndWait:^{
         TextArea *textArea = [[TextArea alloc] initWithContext:viewContext];
-        textArea.name = [NSString stringWithFormat:@"Заметка %li", self.vc.NotesCount];
+        textArea.name = @"Новая заметка";
         textArea.text = @"";
         [self.vc.Notes addObject:textArea];
         [viewContext save:nil];
@@ -63,7 +64,7 @@
     
     NoteTableViewCell *cell = [[NoteTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"NoteCell"];
     self.vc.NotesCount += 1;
-    cell.NoteCell.text = [NSString stringWithFormat:@"Заметка %li", self.vc.NotesCount];
+    cell.NoteCell.text = @"Новая заметка";
     [self.vc.NotesTableView insertRowsAtIndexPaths:
      @[ [NSIndexPath  indexPathForRow:(self.vc.NotesCount - 1) inSection:0] ] withRowAnimation:UITableViewRowAnimationRight];
     

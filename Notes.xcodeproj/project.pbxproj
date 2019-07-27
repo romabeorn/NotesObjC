@@ -19,6 +19,7 @@
 		30BA904422E91D5F00B0354A /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 30BA904022E91B3F00B0354A /* Model.xcdatamodeld */; };
 		30BA904722E925D100B0354A /* NoteTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30BA904622E925D100B0354A /* NoteTableViewCell.m */; };
 		30BA904A22E925FA00B0354A /* NotesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30BA904922E925FA00B0354A /* NotesTableViewController.m */; };
+		30D42B8222ED117900EB4AC2 /* Driver.m in Sources */ = {isa = PBXBuildFile; fileRef = 30D42B8122ED117900EB4AC2 /* Driver.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +44,8 @@
 		30BA904622E925D100B0354A /* NoteTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NoteTableViewCell.m; sourceTree = "<group>"; };
 		30BA904822E925FA00B0354A /* NotesTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotesTableViewController.h; sourceTree = "<group>"; };
 		30BA904922E925FA00B0354A /* NotesTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotesTableViewController.m; sourceTree = "<group>"; };
+		30D42B8022ED117900EB4AC2 /* Driver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Driver.h; sourceTree = "<group>"; };
+		30D42B8122ED117900EB4AC2 /* Driver.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Driver.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +78,7 @@
 		302D1B3622E7EC6600DF8A88 /* Notes */ = {
 			isa = PBXGroup;
 			children = (
+				30D42B7E22ED080D00EB4AC2 /* Queries */,
 				302D1B5622E7ED6200DF8A88 /* NoteView.h */,
 				302D1B5722E7ED6200DF8A88 /* NoteView.m */,
 				30BA904522E925D100B0354A /* NoteTableViewCell.h */,
@@ -101,18 +105,19 @@
 			children = (
 				302D1B4F22E7ECCB00DF8A88 /* TextArea.h */,
 				302D1B5022E7ECCB00DF8A88 /* TextArea.m */,
-				302D1B4E22E7ECA200DF8A88 /* Entities */,
 				302D1B5222E7ED0600DF8A88 /* CoreDataStack.h */,
 				302D1B5322E7ED0600DF8A88 /* CoreDataStack.m */,
 			);
 			name = CoreDataEntities;
 			sourceTree = "<group>";
 		};
-		302D1B4E22E7ECA200DF8A88 /* Entities */ = {
+		30D42B7E22ED080D00EB4AC2 /* Queries */ = {
 			isa = PBXGroup;
 			children = (
+				30D42B8022ED117900EB4AC2 /* Driver.h */,
+				30D42B8122ED117900EB4AC2 /* Driver.m */,
 			);
-			path = Entities;
+			name = Queries;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -194,6 +199,7 @@
 				30BA904722E925D100B0354A /* NoteTableViewCell.m in Sources */,
 				302D1B5122E7ECCB00DF8A88 /* TextArea.m in Sources */,
 				30BA904A22E925FA00B0354A /* NotesTableViewController.m in Sources */,
+				30D42B8222ED117900EB4AC2 /* Driver.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

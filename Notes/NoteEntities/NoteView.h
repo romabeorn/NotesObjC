@@ -14,6 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) NSString *Name;
 @property (nonatomic, copy) void (^editCell)(void);
+@property (nonatomic, assign) int idNote;
 
 @end
 
