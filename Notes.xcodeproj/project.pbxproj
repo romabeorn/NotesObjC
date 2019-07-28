@@ -20,6 +20,9 @@
 		30BA904722E925D100B0354A /* NoteTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30BA904622E925D100B0354A /* NoteTableViewCell.m */; };
 		30BA904A22E925FA00B0354A /* NotesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30BA904922E925FA00B0354A /* NotesTableViewController.m */; };
 		30D42B8222ED117900EB4AC2 /* Driver.m in Sources */ = {isa = PBXBuildFile; fileRef = 30D42B8122ED117900EB4AC2 /* Driver.m */; };
+		30D42B8722ED1C0200EB4AC2 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30D42B8622ED1C0200EB4AC2 /* SettingsViewController.m */; };
+		30D42B9022ED1DA700EB4AC2 /* SettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30D42B8F22ED1DA700EB4AC2 /* SettingsTableViewController.m */; };
+		30D42B9322ED1DBD00EB4AC2 /* SettingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30D42B9222ED1DBD00EB4AC2 /* SettingTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,8 +40,8 @@
 		302D1B5022E7ECCB00DF8A88 /* TextArea.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TextArea.m; sourceTree = "<group>"; };
 		302D1B5222E7ED0600DF8A88 /* CoreDataStack.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoreDataStack.h; sourceTree = "<group>"; };
 		302D1B5322E7ED0600DF8A88 /* CoreDataStack.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CoreDataStack.m; sourceTree = "<group>"; };
-		302D1B5622E7ED6200DF8A88 /* NoteView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = NoteView.h; path = NoteEntities/NoteView.h; sourceTree = "<group>"; };
-		302D1B5722E7ED6200DF8A88 /* NoteView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = NoteView.m; path = NoteEntities/NoteView.m; sourceTree = "<group>"; };
+		302D1B5622E7ED6200DF8A88 /* NoteView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NoteView.h; sourceTree = "<group>"; };
+		302D1B5722E7ED6200DF8A88 /* NoteView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NoteView.m; sourceTree = "<group>"; };
 		30BA904122E91B3F00B0354A /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		30BA904522E925D100B0354A /* NoteTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NoteTableViewCell.h; sourceTree = "<group>"; };
 		30BA904622E925D100B0354A /* NoteTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NoteTableViewCell.m; sourceTree = "<group>"; };
@@ -46,6 +49,12 @@
 		30BA904922E925FA00B0354A /* NotesTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotesTableViewController.m; sourceTree = "<group>"; };
 		30D42B8022ED117900EB4AC2 /* Driver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Driver.h; sourceTree = "<group>"; };
 		30D42B8122ED117900EB4AC2 /* Driver.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Driver.m; sourceTree = "<group>"; };
+		30D42B8522ED1C0200EB4AC2 /* SettingsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		30D42B8622ED1C0200EB4AC2 /* SettingsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		30D42B8E22ED1DA700EB4AC2 /* SettingsTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingsTableViewController.h; sourceTree = "<group>"; };
+		30D42B8F22ED1DA700EB4AC2 /* SettingsTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingsTableViewController.m; sourceTree = "<group>"; };
+		30D42B9122ED1DBD00EB4AC2 /* SettingTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingTableViewCell.h; sourceTree = "<group>"; };
+		30D42B9222ED1DBD00EB4AC2 /* SettingTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,13 +87,14 @@
 		302D1B3622E7EC6600DF8A88 /* Notes */ = {
 			isa = PBXGroup;
 			children = (
+				30D42B8522ED1C0200EB4AC2 /* SettingsViewController.h */,
+				30D42B8622ED1C0200EB4AC2 /* SettingsViewController.m */,
+				30D42B8E22ED1DA700EB4AC2 /* SettingsTableViewController.h */,
+				30D42B8F22ED1DA700EB4AC2 /* SettingsTableViewController.m */,
+				30D42B9122ED1DBD00EB4AC2 /* SettingTableViewCell.h */,
+				30D42B9222ED1DBD00EB4AC2 /* SettingTableViewCell.m */,
+				30D42B8322ED1B3600EB4AC2 /* Notes */,
 				30D42B7E22ED080D00EB4AC2 /* Queries */,
-				302D1B5622E7ED6200DF8A88 /* NoteView.h */,
-				302D1B5722E7ED6200DF8A88 /* NoteView.m */,
-				30BA904522E925D100B0354A /* NoteTableViewCell.h */,
-				30BA904622E925D100B0354A /* NoteTableViewCell.m */,
-				30BA904822E925FA00B0354A /* NotesTableViewController.h */,
-				30BA904922E925FA00B0354A /* NotesTableViewController.m */,
 				302D1B4D22E7EC7F00DF8A88 /* CoreDataEntities */,
 				302D1B3722E7EC6600DF8A88 /* AppDelegate.h */,
 				302D1B3822E7EC6600DF8A88 /* AppDelegate.m */,
@@ -118,6 +128,19 @@
 				30D42B8122ED117900EB4AC2 /* Driver.m */,
 			);
 			name = Queries;
+			sourceTree = "<group>";
+		};
+		30D42B8322ED1B3600EB4AC2 /* Notes */ = {
+			isa = PBXGroup;
+			children = (
+				302D1B5622E7ED6200DF8A88 /* NoteView.h */,
+				302D1B5722E7ED6200DF8A88 /* NoteView.m */,
+				30BA904522E925D100B0354A /* NoteTableViewCell.h */,
+				30BA904622E925D100B0354A /* NoteTableViewCell.m */,
+				30BA904822E925FA00B0354A /* NotesTableViewController.h */,
+				30BA904922E925FA00B0354A /* NotesTableViewController.m */,
+			);
+			path = Notes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -190,14 +213,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30D42B9022ED1DA700EB4AC2 /* SettingsTableViewController.m in Sources */,
 				302D1B5422E7ED0600DF8A88 /* CoreDataStack.m in Sources */,
 				302D1B3C22E7EC6600DF8A88 /* ViewController.m in Sources */,
+				30D42B9322ED1DBD00EB4AC2 /* SettingTableViewCell.m in Sources */,
 				302D1B4722E7EC6700DF8A88 /* main.m in Sources */,
 				30BA904422E91D5F00B0354A /* Model.xcdatamodeld in Sources */,
 				302D1B3922E7EC6600DF8A88 /* AppDelegate.m in Sources */,
 				302D1B5822E7ED6200DF8A88 /* NoteView.m in Sources */,
 				30BA904722E925D100B0354A /* NoteTableViewCell.m in Sources */,
 				302D1B5122E7ECCB00DF8A88 /* TextArea.m in Sources */,
+				30D42B8722ED1C0200EB4AC2 /* SettingsViewController.m in Sources */,
 				30BA904A22E925FA00B0354A /* NotesTableViewController.m in Sources */,
 				30D42B8222ED117900EB4AC2 /* Driver.m in Sources */,
 			);

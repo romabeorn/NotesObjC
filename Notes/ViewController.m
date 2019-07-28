@@ -34,6 +34,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self prepareUI];
+    
+}
+
+- (void)prepareUI
+{
     self.vc = [NotesTableViewController new];
     
     UIBarButtonItem *anotherButton = [[UIBarButtonItem alloc] initWithTitle:@"Add" style:UIBarButtonItemStylePlain target:self action:@selector(addCell)];
@@ -43,9 +49,7 @@
     [self addChildViewController:self.vc];
     [self.view addSubview:self.vc.view];
     [self.vc didMoveToParentViewController:self];
-    
 }
-
 
 - (void)addCell
 {

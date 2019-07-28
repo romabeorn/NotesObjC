@@ -46,7 +46,7 @@
     NoteTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NoteCell" forIndexPath:indexPath];
     NSString *text = [self.Notes[indexPath.row] valueForKey:@"text"];
     NSString *name = [self.Notes[indexPath.row] valueForKey:@"name"];
-    self.Notes[indexPath.row].idNote = indexPath.row;
+    self.Notes[indexPath.row].idNote = (int)indexPath.row;
     if ([text isEqualToString:@""])
     {
         if ([name isEqualToString:@""])
