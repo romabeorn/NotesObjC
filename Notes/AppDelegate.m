@@ -27,11 +27,12 @@
     // Settings
     SettingsTableViewController *settings = [SettingsTableViewController new];
     settings.title = @"Настройки";
+    [settings.tabBarItem setTitleTextAttributes:@{NSFontAttributeName: [UIFont fontWithName:@"Avenir-Light" size:20.0f]} forState:UIControlStateNormal];
     
     // Table
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:notes];
     navigationController.tabBarItem.title = @"Заметки";
-    
+    [navigationController.tabBarItem setTitleTextAttributes:@{NSFontAttributeName: [UIFont fontWithName:@"Avenir-Light" size:20.0f]} forState:UIControlStateNormal];
     
     UITabBarController *tabBarController = [UITabBarController new];
     tabBarController.viewControllers = @[navigationController, settings];
